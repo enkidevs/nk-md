@@ -132,7 +132,7 @@ module.exports = function createWindow (options) {
   }
 
   function sendMarkdown () {
-    const resolved = fromFile && options.filePath
+    const resolved = options.filePath
       ? path.resolve(path.dirname(options.filePath))
       : process.cwd()
 
@@ -140,13 +140,13 @@ module.exports = function createWindow (options) {
     if (baseUrl) baseUrl += '/'
 
     if (win) {
-      var contents = fromFile && options.filePath
+      var contents = options.filePath
         ? fs.readFileSync(options.filePath, { encoding: 'utf8' })
         : options.contents
 
-      var topic
+      var topic = ''
       try {
-        topic = fromFile
+        topic = options.filePath
           ? fs.readFileSync(path.join(path.dirname(path.dirname(options.filePath)), 'README.md'), { encoding: 'utf8' })
           : ''
       } catch (err) {}
