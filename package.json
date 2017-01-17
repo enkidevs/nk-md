@@ -1,0 +1,53 @@
+{
+  "name": "nk-md",
+  "version": "0.1.0",
+  "description": "nk-md",
+  "main": "main/main.js",
+  "scripts": {
+    "start": "electron main/main.js --not-packaged=true",
+    "dev": "electron main/main.js --not-packaged=true --debug=true",
+    "test": "standard",
+    "pack-linux-ia32": "electron-packager . --asar --overwrite --platform=linux --arch=ia32 --icon=assets/app-icon/png/64.png --prune=true --out=build",
+    "pack-linux-x64": "electron-packager . --asar --overwrite --platform=linux --arch=x64 --icon=assets/app-icon/png/64.png --prune=true --out=build",
+    "pack-win32-ia32": "electron-packager . --asar  --overwrite --platform=win32 --arch=ia32 --icon=assets/app-icon/win/app.ico --prune=true --out=build --version-string.ProductName='nk-md'",
+    "pack-win32-x64": "electron-packager . --asar  --overwrite --platform=win32 --arch=x64 --icon=assets/app-icon/win/app.ico --prune=true --out=build --version-string.ProductName='nk-md'",
+    "pack-mac": "electron-packager . --asar --overwrite --platform=darwin --arch=x64 --icon=assets/app-icon/mac/app.icns --prune=true --out=build",
+    "package": "npm run pack-linux-ia32 && npm run pack-linux-x64 && npm run pack-win32-ia32 && npm run pack-win32-x64 && npm run pack-mac",
+    "release": "node ./script/release.js"
+  },
+  "bin": {
+    "nk-md": "./bin/cli.js"
+  },
+  "repository": "enkidevs/nk-md",
+  "keywords": [
+    "md",
+    "markdown",
+    "viewer",
+    "browser",
+    "standalone",
+    "preview",
+    "github"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "1.6.0",
+    "deep-equal": "1.0.1",
+    "electron": "1.4.1",
+    "electron-window-state": "3.0.4",
+    "enki-content": "0.1.6",
+    "enki-insight-renderer": "0.0.3",
+    "get-stdin": "5.0.1",
+    "js-yaml": "git+https://github.com/mathieudutour/js-yaml.git",
+    "lodash.template": "4.4.0",
+    "minimist": "1.2.0",
+    "object-assign": "4.1.0",
+    "redux": "3.6.0",
+    "rucola": "1.1.3"
+  },
+  "devDependencies": {
+    "electron-packager": "8.0.0",
+    "promise-retryer": "0.0.1",
+    "request": "2.75.0",
+    "standard": "8.1.0"
+  }
+}
