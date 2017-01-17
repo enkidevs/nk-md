@@ -12,6 +12,7 @@ const currentWindow = remote.getCurrentWindow()
 require('enki-insight-renderer') // side effect: define window.renderInsight
 const enkiContent = require('enki-content')
 const yaml = require('js-yaml')
+const ErrorStackParser = require('error-stack-parser')
 const createMenu = require('../shared/create-menu')
 const hist = require('./history')()
 const zoom = require('./zoom')(conf.zoom)
@@ -306,9 +307,33 @@ vmd.onContent(function (ev, data) {
     window.insight = insight
 
     window.renderInsight(insight, false)
-  } catch (err) {
-    console.error(err)
-    document.getElementById('wrapper').innerHTML = err.message
+  } catch (error) {
+    console.error(error)
+    var frames
+    var parseError
+    try {
+      frames = ErrorStackParser.parse(error)
+    } catch (e) {
+      parseError = new Error('Failed to parse stack trace. Stack trace information unavailable.')
+    }
+
+    if (parseError) {
+      frames = '<div class="frame"><div>' + parseError.message + '</div></div>'
+    } else {
+      frames = frames.reduce(function (prev, f, index) {
+        prev += '<div class="frame"><div>' + f.functionName + '</div><div class="file">'
+        if (index === 0) {
+          prev += f.fileName
+        } else {
+          prev += f.fileName + ':' + f.lineNumber + ':' + f.columnNumber
+        }
+        prev += '</div></div>'
+        return prev
+      }, '')
+    }
+    document.getElementById('wrapper').innerHTML =
+      fs.readFileSync(path.join(__dirname, 'error.html'), 'utf-8')
+    document.getElementById('error').innerHTML = '<div class="redbox"><div class="message">' + error.name + ': ' + error.message + '</div><div class="stack">' + frames + '</div></div>'
   }
 })
 

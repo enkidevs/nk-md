@@ -36,6 +36,7 @@
     "electron-window-state": "3.0.4",
     "enki-content": "0.1.6",
     "enki-insight-renderer": "0.0.3",
+    "error-stack-parser": "2.0.0",
     "get-stdin": "5.0.1",
     "js-yaml": "git+https://github.com/mathieudutour/js-yaml.git",
     "lodash.template": "4.4.0",
