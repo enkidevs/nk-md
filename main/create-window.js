@@ -132,7 +132,7 @@ module.exports = function createWindow (options) {
   }
 
   function sendMarkdown () {
-    const resolved = fromFile
+    const resolved = fromFile && options.filePath
       ? path.resolve(path.dirname(options.filePath))
       : process.cwd()
 
@@ -140,7 +140,7 @@ module.exports = function createWindow (options) {
     if (baseUrl) baseUrl += '/'
 
     if (win) {
-      var contents = fromFile
+      var contents = fromFile && options.filePath
         ? fs.readFileSync(options.filePath, { encoding: 'utf8' })
         : options.contents
 

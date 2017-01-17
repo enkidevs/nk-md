@@ -280,6 +280,12 @@ vmd.onContent(function (ev, data) {
     base.setAttribute('href', data.baseUrl)
   }
 
+  if (!data.contents) {
+    document.getElementById('wrapper').innerHTML =
+      fs.readFileSync(path.join(__dirname, 'empty.html'), 'utf-8')
+    return
+  }
+
   try {
     const insight = enkiContent.parse(data.contents)
     insight.topic = {}

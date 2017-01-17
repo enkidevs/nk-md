@@ -51,8 +51,7 @@ Or download an executable from the [release page](https://github.com/enkidevs/nk
 nk-md [FILE] [OPTIONS]
 ```
 
-If no FILE is provided it will try to read from standard input, or
-automatically look for "README.md" if in a TTY.
+If no FILE is provided it will try to read from standard input.
 
 ### Examples
 
@@ -60,12 +59,6 @@ Read a file from disk:
 
 ```sh
 $ nk-md DOCUMENT.md
-```
-
-When no path to a document is supplied, "README.md" will be opened by default:
-
-```sh
-$ nk-md
 ```
 
 It reads from `stdin` so you can pipe markdown text in to it:
@@ -87,9 +80,6 @@ $ cat README.md | nk-md
 
  - `-z, --zoom=NUM`: Set a zoom factor to make the content larger or smaller.
    For example `--zoom=1.25`
-
- - `--document=FILENAME`: vmd will look for "README.md" by default if no file
-   path has been specified. This can be changed to something else.
 
  - `--styles-main=FILE`: Provide a custom CSS file to display the content.
 
