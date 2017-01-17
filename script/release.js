@@ -34,44 +34,44 @@ function archiveAssets () {
 
   const assets = [
     {
-      name: `vmd-${version}-mac.zip`,
-      path: path.join(outPath, 'vmd-darwin-x64', 'vmd.app')
+      name: `nk-md-${version}-mac.zip`,
+      path: path.join(outPath, 'nk-md-darwin-x64', 'nk-md.app')
     },
     {
-      name: `vmd-${version}-mac.tar.gz`,
-      path: path.join(outPath, 'vmd-darwin-x64', 'vmd.app')
+      name: `nk-md-${version}-mac.tar.gz`,
+      path: path.join(outPath, 'nk-md-darwin-x64', 'nk-md.app')
     },
     {
-      name: `vmd-${version}-linux-ia32.zip`,
-      path: path.join(outPath, 'vmd-linux-ia32')
+      name: `nk-md-${version}-linux-ia32.zip`,
+      path: path.join(outPath, 'nk-md-linux-ia32')
     },
     {
-      name: `vmd-${version}-linux-ia32.tar.gz`,
-      path: path.join(outPath, 'vmd-linux-ia32')
+      name: `nk-md-${version}-linux-ia32.tar.gz`,
+      path: path.join(outPath, 'nk-md-linux-ia32')
     },
     {
-      name: `vmd-${version}-linux-x64.zip`,
-      path: path.join(outPath, 'vmd-linux-x64')
+      name: `nk-md-${version}-linux-x64.zip`,
+      path: path.join(outPath, 'nk-md-linux-x64')
     },
     {
-      name: `vmd-${version}-linux-x64.tar.gz`,
-      path: path.join(outPath, 'vmd-linux-x64')
+      name: `nk-md-${version}-linux-x64.tar.gz`,
+      path: path.join(outPath, 'nk-md-linux-x64')
     },
     {
-      name: `vmd-${version}-win32-ia32.zip`,
-      path: path.join(outPath, 'vmd-win32-ia32')
+      name: `nk-md-${version}-win32-ia32.zip`,
+      path: path.join(outPath, 'nk-md-win32-ia32')
     },
     {
-      name: `vmd-${version}-win32-ia32.tar.gz`,
-      path: path.join(outPath, 'vmd-win32-ia32')
+      name: `nk-md-${version}-win32-ia32.tar.gz`,
+      path: path.join(outPath, 'nk-md-win32-ia32')
     },
     {
-      name: `vmd-${version}-win32-x64.zip`,
-      path: path.join(outPath, 'vmd-win32-x64')
+      name: `nk-md-${version}-win32-x64.zip`,
+      path: path.join(outPath, 'nk-md-win32-x64')
     },
     {
-      name: `vmd-${version}-win32-x64.tar.gz`,
-      path: path.join(outPath, 'vmd-win32-x64')
+      name: `nk-md-${version}-win32-x64.tar.gz`,
+      path: path.join(outPath, 'nk-md-win32-x64')
     }
   ]
 
@@ -156,7 +156,7 @@ function createRelease (assets) {
     json: {
       tag_name: `${version}`,
       target_commitish: 'master',
-      name: `vmd v${version}`,
+      name: `nk-md v${version}`,
       body: 'An awesome new release :tada:',
       draft: true,
       prerelease: false
