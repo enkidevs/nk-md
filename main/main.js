@@ -1,3 +1,5 @@
+require('electron-debug')({showDevTools: true})
+
 const fs = require('fs')
 const path = require('path')
 const app = require('electron').app

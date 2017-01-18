@@ -45,6 +45,15 @@ module.exports = function createWindow (options) {
     y: options.y
   })
 
+  win.webContents.on('crashed', function (err) {
+    console.err(err)
+    window.alert(err)
+  })
+
+  win.on('unresponsive', function () {
+    window.alert('Please wait')
+  })
+
   updateTitle()
 
   temporarilyInterceptFileProtocol()
@@ -110,12 +119,12 @@ module.exports = function createWindow (options) {
   function updateTitle () {
     var prefix =
       options.title ||
-      (fromFile && (path.basename(options.filePath)))
+      (options.filePath && (path.basename(options.filePath)))
 
     win.setTitle(prefix ? prefix + ' - nk-md' : 'nk-md')
 
     // (OS X) Set represented filename (icon in title bar)
-    if (fromFile && process.platform === 'darwin') {
+    if (options.filePath && process.platform === 'darwin') {
       win.setRepresentedFilename(path.resolve(options.filePath))
     }
   }

@@ -1,6 +1,6 @@
 {
   "name": "nk-md",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "nk-md",
   "main": "main/main.js",
   "scripts": {
@@ -13,6 +13,7 @@
     "pack-win32-x64": "electron-packager . --asar  --overwrite --platform=win32 --arch=x64 --icon=assets/app-icon/win/app.ico --prune=true --out=build --version-string.ProductName='nk-md'",
     "pack-mac": "electron-packager . --asar --overwrite --platform=darwin --arch=x64 --icon=assets/app-icon/mac/app.icns --prune=true --out=build",
     "package": "npm run pack-linux-ia32 && npm run pack-linux-x64 && npm run pack-win32-ia32 && npm run pack-win32-x64 && npm run pack-mac",
+    "prerelease": "git tag ${npm_package_version} && git push --tags && npm run package",
     "release": "node ./script/release.js"
   },
   "bin": {
@@ -20,6 +21,8 @@
   },
   "repository": "enkidevs/nk-md",
   "keywords": [
+    "enki",
+    "insight",
     "md",
     "markdown",
     "viewer",
@@ -32,8 +35,9 @@
   "dependencies": {
     "chokidar": "1.6.0",
     "deep-equal": "1.0.1",
-    "electron": "1.4.1",
-    "electron-window-state": "3.0.4",
+    "electron": "1.4.14",
+    "electron-debug": "1.1.0",
+    "electron-window-state": "4.0.1",
     "enki-content": "0.1.6",
     "enki-insight-renderer": "0.0.3",
     "error-stack-parser": "2.0.0",
@@ -46,9 +50,10 @@
     "rucola": "1.1.3"
   },
   "devDependencies": {
-    "electron-packager": "8.0.0",
+    "devtron": "1.4.0",
+    "electron-packager": "8.5.0",
     "promise-retryer": "0.0.1",
     "request": "2.75.0",
-    "standard": "8.1.0"
+    "standard": "8.6.0"
   }
 }
