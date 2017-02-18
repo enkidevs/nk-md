@@ -81,6 +81,8 @@ $ cat README.md | nk-md
  - `-z, --zoom=NUM`: Set a zoom factor to make the content larger or smaller.
    For example `--zoom=1.25`
 
+ - `--list-highlight-themes`: Show a list of available syntax highlighting themes.
+ 
  - `--styles-main=FILE`: Provide a custom CSS file to display the content.
 
  - `--styles-extra=FILE`: Provide a custom CSS file to do additional styling.
@@ -88,6 +90,16 @@ $ cat README.md | nk-md
 
  - `--window-preservestate=false`: By default vmd preserves the window state
    for the next session, set this option to false to disable this.
+
+### Note
+
+- To load a insight with styling, you need to run the command with parent folders included: 
+
+```
+nk-md JavaScript/Classes/object-prototype.md
+```
+
+- To `Toggle Revision Question` you can press `ctrl+E` or from window `Menu > View` where you can see others options like `Zoom In`, `Zoom Out`, `Reset Zoom`, `Toggle Developer Tools`
 
 ## Authors
 
